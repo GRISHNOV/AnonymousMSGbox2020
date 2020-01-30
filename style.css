@@ -1,0 +1,39 @@
+div.login_box{
+    background: Gray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border: 5px solid OrangeRed;
+    padding: 10px;
+
+    border-radius: 0 10px;
+}
+
+body.login_page{
+    background-image: url(./img/login_background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+body.msg_client_page {
+    background-image: url(./img/msg_client_page.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+body.registration_client_page {
+    background-image: url(./img/registration_background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
