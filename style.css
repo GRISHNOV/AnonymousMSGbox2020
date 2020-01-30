@@ -11,6 +11,32 @@ div.login_box{
     border-radius: 0 10px;
 }
 
+div.registration_box{
+    background: PowderBlue;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border: 5px solid Lime;
+    padding: 10px;
+
+    border-radius: 0 10px;
+}
+
+div.help_box{
+    background: Bisque;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    border: 5px solid Cyan;
+    padding: 10px;
+
+    border-radius: 0 10px;
+}
+
 body.login_page{
     background-image: url(./img/login_background.jpg);
     background-position: center center;
@@ -36,4 +62,19 @@ body.registration_client_page {
     background-attachment: fixed;
     background-size: cover;
     background-color: black;
+}
+
+body.help_page {
+    background-image: url(./img/help_background.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: black;
+}
+
+button {
+    border-radius: 5px;
+    box-shadow: 0 0 3px 1px Yellow;
+    margin: 2px;
 }

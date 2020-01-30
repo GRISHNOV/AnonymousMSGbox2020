@@ -14,12 +14,17 @@
                 <body class="login_page">
                     <div class="login_box">
                         <form action="auth_processor.php" method="GET">
-                            <p align="center">Добро пожаловать!</p>
-                            <input type="text" name="user_login" placeholder="Login"><br><br>
-                            <input type="password" name="user_password" placeholder="Password"><br><br>
-                            <input type="submit" value="Войти"><? if(isset($_SESSION['auth_error'])) {echo " Ошибка";} ?>
+                            <span style="color:Aqua"><h3 align="center">Anonymous self-destructing<br>email service</h3></span>
+                            <hr>
+                            <input type="text" name="user_login" placeholder="Login" maxlength="8"><br><br>
+                            <input type="password" name="user_password" placeholder="Password" maxlength="16"><br><br>
+                            <input type="submit" value="Войти"><? if(isset($_SESSION['auth_error'])) {echo "<span style=\"color:#FFD700\"> Ошибка</span>";} ?>
                         </form>
-                        <button onclick="window.location.href = 'registration_intefrace.php';">Регистрация</button>
+                        <hr>
+                        <br>
+                        <button onclick="window.location.href = 'registration_intefrace.php';">Создать почтовый ящик</button>
+                        <br>
+                        <button onclick="window.location.href = 'help.php';">Справка</button>
                             <?php
 
                             ?>
