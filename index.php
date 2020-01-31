@@ -9,9 +9,16 @@
                 <head>
                     <meta charset="UTF-8">
                     <link rel="stylesheet" href="style.css">
+                    <script src="particles.min.js"></script>
                     <title>MSG box login</title>
                 </head>
                 <body class="login_page">
+                    <div id="particles-js"></div>
+                    <script>
+                        particlesJS.load('particles-js', 'assets/particles.json', function() {
+                            console.log('callback - particles.js config loaded');
+                        });
+                    </script>
                     <div class="login_box">
                         <form action="auth_processor.php" method="GET">
                             <span style="color:Aqua"><h3 align="center">Anonymous self-destructing<br>email service</h3></span>
@@ -34,6 +41,7 @@
         <?php
     }else{
         header('Location: main_msg_module.php');
+        exit();
     }
     #print("<br><br>");
     #var_dump($_SESSION);    
