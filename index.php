@@ -10,6 +10,8 @@
                     <meta charset="UTF-8">
                     <link rel="stylesheet" href="style.css">
                     <script src="particles.min.js"></script>
+                    <script src="crypto_frontend.js"></script>
+                    <script src="index_page.js"></script>
                     <title>MSG box login</title>
                 </head>
                 <body class="login_page">
@@ -20,11 +22,14 @@
                         });
                     </script>
                     <div class="login_box">
-                        <form action="auth_processor.php" method="GET">
+                        <form action="auth_processor.php" name="auth_form" method="GET" onsubmit="return preprocessing_auth_form();">
                             <span style="color:Aqua"><h3 align="center">Anonymous self-destructing<br>email service</h3></span>
                             <hr>
-                            <input type="text" name="user_login" placeholder="Login" maxlength="8"><br><br>
-                            <input type="password" name="user_password" placeholder="Password" maxlength="16"><br><br>
+                            <input type="text" name="user_login" placeholder="Login" maxlength="8" id="login_input"><br><br>
+                            <div id="processing_indicator" align="center">
+                                <input type="hidden" id="processing_input" value="PROCESSING">
+                            </div>
+                            <input type="password" name="user_password" placeholder="Password" maxlength="16" id="password_input"><br><br>
                             <input type="submit" value="Войти"><? if(isset($_SESSION['auth_error'])) {echo "<span style=\"color:#FFD700\"> Ошибка</span>";} ?>
                         </form>
                         <hr>

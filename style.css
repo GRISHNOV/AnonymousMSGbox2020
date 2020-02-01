@@ -76,5 +76,17 @@ body.help_page {
 button {
     border-radius: 5px;
     box-shadow: 0 0 3px 1px Yellow;
-    margin: 2px;
+    margin: 3px;
+}
+button:hover {
+    box-shadow: 0 2px 2px 0 Yellow;
+}
+
+html {
+    /*overflow-y: scroll;*/
+    overflow:  hidden;
+}
+
+input:focus{
+    box-shadow: 1px 1px 1px 0 black;
 }

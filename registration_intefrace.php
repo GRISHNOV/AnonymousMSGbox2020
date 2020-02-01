@@ -15,7 +15,7 @@
         </script>
         <div class="registration_box">
             <form action="registration_processor.php" method="GET">
-                <p align="center">Выберете конфигурацию:</p>
+                <p align="center">Выберите конфигурацию:</p>
                 Время жизни:
                 <select name = "Time_to_destroy">
                     <option value = "2h" selected>2 часа</option>
