@@ -10,7 +10,7 @@
                     <meta charset="UTF-8">
                     <link rel="stylesheet" href="style.css">
                     <script src="particles.min.js"></script>
-                    <script src="crypto_frontend.js"></script>
+                    <script src="cryptico_js/sha512.js"></script>
                     <script src="index_page.js"></script>
                     <title>MSG box login</title>
                 </head>
@@ -37,9 +37,7 @@
                         <button onclick="window.location.href = 'registration_intefrace.php';">Создать почтовый ящик</button>
                         <br>
                         <button onclick="window.location.href = 'help.php';">Справка</button>
-                            <?php
-
-                            ?>
+                        <p align="right">RSA 2048<br>E2E email content encryption</p>
                     </div>
                 </body>
             </html>

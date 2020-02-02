@@ -22,8 +22,10 @@
                     <option value = "12h">12 часов</option>
                     <option value = "48h">48 часов</option>
                 </select>
+                <hr>
+                <br>
+                <input type="submit" value="Создать">
             </form>
-            <?php?>
         </div>
     </body>
 </html>

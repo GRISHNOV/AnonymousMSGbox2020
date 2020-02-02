@@ -15,6 +15,7 @@
                 if (hash("sha512",$_GET["user_login"]) == $db_row[1] and hash("sha512", $_GET["user_password"]) == $db_row[2]) {
                     $_SESSION['auth_exist'] = True;
                     $_SESSION['auth_error'] = False;
+                    sleep(1);
                     header('Location: main_msg_module.php');
                     exit();
                 }

@@ -9,6 +9,13 @@ div.login_box{
     padding: 10px;
 
     border-radius: 0 10px;
+
+    transition: 3s;
+}
+
+div.login_box:hover {
+    transition: 5s;
+    box-shadow: 0 0 50px 3px OrangeRed;
 }
 
 div.registration_box{
@@ -35,6 +42,10 @@ div.help_box{
     padding: 10px;
 
     border-radius: 0 10px;
+}
+
+body{
+    animation: show 2s;
 }
 
 body.login_page{
@@ -82,6 +93,10 @@ button:hover {
     box-shadow: 0 2px 2px 0 Yellow;
 }
 
+input {
+    border-radius: 5px 5px;
+}
+
 html {
     /*overflow-y: scroll;*/
     overflow:  hidden;
@@ -89,4 +104,8 @@ html {
 
 input:focus{
     box-shadow: 1px 1px 1px 0 black;
+}
+
+@keyframes show {
+    from {opacity: 0;} to {opacity: 1;}
 }
