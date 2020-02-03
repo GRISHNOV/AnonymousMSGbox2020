@@ -17,14 +17,30 @@
 
     $user_login = generate_str(8);
     $user_password = generate_str(16);
-
-    print($user_login);
-    print("<br>");
-    print($user_password);
+    $user_alias = random_int(100000,999999);
 
     $user_login_hash = hash('sha512', hash('sha512', $user_login));
     $user_password_hash = hash('sha512', hash('sha512', $user_password));
 
     $db_connection = connect_to_db();
-    $db_query = "INSERT INTO user_list (login, password, user_time_to_destroy) VALUES ('$user_login_hash' , '$user_password_hash' , '$user_time_to_destroy' )";
+
+    $db_query = "SELECT * FROM user_list";
     $db_query_result = mysqli_query($db_connection, $db_query) or die(mysqli_error($db_connection));
+    $db_input = mysqli_fetch_all($db_query_result);
+    while(True){
+        if (user_alias_collision($db_input,$user_alias) == True){
+            $user_alias = random_int(100000,999999);
+        }else{
+            break;
+        }
+    }
+
+    $db_query = "INSERT INTO user_list (login, password, user_time_to_destroy, alias) VALUES ('$user_login_hash' , '$user_password_hash' , '$user_time_to_destroy' , '$user_alias')";
+    $db_query_result = mysqli_query($db_connection, $db_query) or die(mysqli_error($db_connection));
+
+
+    print($user_login);
+    print("<br>");
+    print($user_password);
+    print("<br>");
+    print($user_alias);

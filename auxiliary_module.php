@@ -12,3 +12,13 @@
         }
         return $result;
     }
+
+    function user_alias_collision($db_input,$user_alias){
+        $user_alias_collision = False;
+        foreach ($db_input as $db_row) {
+            if ($db_row[5] == $user_alias){
+                $user_alias_collision = True;
+            }
+        }
+        return $user_alias_collision;
+    }
