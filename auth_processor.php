@@ -12,7 +12,7 @@
             $db_query_result = mysqli_query($db_connection, $db_query) or die(mysqli_error($db_connection));
             $db_input = mysqli_fetch_all($db_query_result);
             foreach ($db_input as $db_row) {
-                if (hash("sha512",$_GET["user_login"]) == $db_row[1] and hash("sha512", $_GET["user_password"]) == $db_row[2]) {
+                if ($_GET["user_login"] == hash("sha512", $db_row[1]) and $_GET["user_password"] == hash("sha512", $db_row[2])) {
                     $_SESSION['auth_exist'] = True;
                     $_SESSION['auth_error'] = False;
                     sleep(1);

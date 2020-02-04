@@ -10,8 +10,8 @@ function preprocessing_auth_form(){
         var x = document.getElementById("processing_input").value;
         document.getElementById("processing_indicator").innerHTML = x;
 
-        document.auth_form.user_login.value = SHA512(document.auth_form.user_login.value);
-        document.auth_form.user_password.value = SHA512(document.auth_form.user_password.value);
+        document.auth_form.user_login.value = SHA512(SHA512(document.auth_form.user_login.value));
+        document.auth_form.user_password.value = SHA512(SHA512(document.auth_form.user_password.value));
     }
     return valid;
 }
