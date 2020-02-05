@@ -31,5 +31,18 @@
                 console.log('callback - particles.js config loaded');
             });
         </script>
+        <div class="login_box">
+            <form action="" name="auth_form" method="GET">
+                <span style="color:Aqua"><h3 align="center">Форма отправки<br>сообщения</h3></span>
+                <hr>
+                <input type="text" name="destination_alias" placeholder=" Alias" maxlength="6" id="alias_input" autocomplete="off"><br><br>
+                <textarea name="msg" cols="40" rows="10" placeholder=" Message"></textarea><br><br>
+                <input type="submit" value="Отправить сообщение">
+            </form>
+            <hr>
+            <div align="right">
+                <button onclick="window.location.href = 'terminate_session.php';">Выйти</button>
+            </div>
+        </div>
     </body>
 </html>

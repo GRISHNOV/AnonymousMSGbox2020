@@ -14,7 +14,15 @@
             });
         </script>
         <div class="registration_box">
-            <form action="registration_processor.php" method="GET">
+            <script>
+                function hide_request_button() {
+                    document.getElementById('new_user_request').style.display = 'none';
+                    var x = document.getElementById("processing_input").value;
+                    document.getElementById("processing_indicator").innerHTML = x;
+                    return true;
+                }
+            </script>
+            <form action="registration_processor.php" method="GET" onsubmit="return hide_request_button();">
                 <p align="center">Выберите конфигурацию:</p>
                 Время жизни:
                 <select name = "Time_to_destroy">
@@ -23,8 +31,10 @@
                     <option value = "48h">48 часов</option>
                 </select>
                 <hr>
-                <br>
-                <input type="submit" value="Создать">
+                <div id="processing_indicator" align="center">
+                    <input type="hidden" id="processing_input" value="PROCESSING">
+                </div>
+                <input type="submit" value="Создать" id="new_user_request">
             </form>
         </div>
     </body>

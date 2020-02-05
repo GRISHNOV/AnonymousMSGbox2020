@@ -2,6 +2,10 @@
     error_reporting(E_ALL);
     session_start();
 
+    #ini_set('display_errors', 0);
+    #ini_set('display_startup_errors', 0);
+    #error_reporting(0);
+
     require_once "db_module.php";
     require_once "auxiliary_module.php";
 
@@ -21,6 +25,7 @@
 
     $user_login_hash = hash('sha512', $user_login);
     $user_password_hash = hash('sha512', $user_password);
+    $new_open_RSA_user_key = create_RSA_key_pair($user_password);
 
     $db_connection = connect_to_db();
 
@@ -35,7 +40,7 @@
         }
     }
 
-    $db_query = "INSERT INTO user_list (login, password, user_time_to_destroy, alias) VALUES ('$user_login_hash' , '$user_password_hash' , '$user_time_to_destroy' , '$user_alias')";
+    $db_query = "INSERT INTO user_list (login, password, user_time_to_destroy, alias, open_RSA_key) VALUES ('$user_login_hash' , '$user_password_hash' , '$user_time_to_destroy' , '$user_alias' , '$new_open_RSA_user_key')";
     $db_query_result = mysqli_query($db_connection, $db_query) or die(mysqli_error($db_connection));
 
     #print($user_login);
@@ -63,11 +68,12 @@
             });
         </script>
         <div class="registration_box">
-            <div id="frontend_crypto_init">
-                <input type="hidden" id="new_user_login" value="<?php print($user_login); ?>">
-                <input type="hidden" id="new_user_password" value="<?php print($user_password); ?>">
-                <input type="hidden" id="new_user_alias" value="<?php print($user_alias); ?>">
-            </div>
+            <!--<div id="frontend_crypto_init">
+                <input type="hidden" id="new_user_login" value="<?php //print($user_login); ?>">
+                <input type="hidden" id="new_user_password" value="<?php //print($user_password); ?>">
+                <input type="hidden" id="new_user_alias" value="<?php //print($user_alias); ?>">
+            </div>-->
+            <!--
             <script>
                 new_login = document.getElementById("new_user_login").value;;
                 new_password = document.getElementById("new_user_password").value;;
@@ -81,12 +87,26 @@
                 var UserPublicKeyString = cryptico.publicKeyString(UserRSAkey);
                 alert(UserPublicKeyString);
             </script>
+            -->
             <?php
-                print($user_login);
+                /*print($user_login);
                 print("<br>");
                 print($user_password);
                 print("<br>");
                 print($user_alias);
+                print("<br>");*/
+                #print('<p align=\"justify\">' . $new_open_RSA_user_key . '</p>');
             ?>
+            <div align="center">
+                <p>Новый почтовый ящик создан</p>
+                <hr>
+                <p>Login: <?print($user_login);?></p>
+                <p>Password: <?print($user_password);?></p>
+                <p>Alias: <?print($user_alias);?></p>
+                <p>Время жизни: <?print($user_time_to_destroy . " hours");?></p>
+                <hr>
+                <button onclick="window.location.href = 'index.php';">Завершить</button>
+            </div>
+        </div>
     </body>
 </html>

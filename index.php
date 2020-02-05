@@ -2,6 +2,10 @@
     error_reporting(E_ALL);
     session_start();
 
+    #ini_set('display_errors', 0);
+    #ini_set('display_startup_errors', 0);
+    #error_reporting(0);
+
     if(!isset($_SESSION['auth_exist'])){
         ?>
             <!DOCTYPE html>
@@ -25,11 +29,11 @@
                         <form action="auth_processor.php" name="auth_form" method="GET" onsubmit="return preprocessing_auth_form();">
                             <span style="color:Aqua"><h3 align="center">Anonymous self-destructing<br>email service</h3></span>
                             <hr>
-                            <input type="text" name="user_login" placeholder="Login" maxlength="8" id="login_input" autocomplete="off"><br><br>
+                            <input type="text" name="user_login" placeholder=" Login" maxlength="8" id="login_input" autocomplete="off"><br><br>
                             <div id="processing_indicator" align="center">
                                 <input type="hidden" id="processing_input" value="PROCESSING">
                             </div>
-                            <input type="password" name="user_password" placeholder="Password" maxlength="16" id="password_input" autocomplete="off"><br><br>
+                            <input type="password" name="user_password" placeholder=" Password" maxlength="16" id="password_input" autocomplete="off"><br><br>
                             <input type="submit" value="Войти"><? if(isset($_SESSION['auth_error'])) {echo "<span style=\"color:#FFD700\"> Ошибка</span>";} ?>
                         </form>
                         <hr>

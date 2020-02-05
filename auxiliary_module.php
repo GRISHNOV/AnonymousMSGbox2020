@@ -22,3 +22,9 @@
         }
         return $user_alias_collision;
     }
+
+    function create_RSA_key_pair($user_password){
+        $request_to_local_cryptico_server = "http://127.0.0.1:3000/?user_password=" . $user_password;
+        $response_from_local_cryptico_server = file_get_contents($request_to_local_cryptico_server) or die("problem: cryptico local server not respond");
+        return $response_from_local_cryptico_server;
+    }

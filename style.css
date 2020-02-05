@@ -21,7 +21,7 @@ div.login_box:hover {
 div.registration_box{
     background: PowderBlue;
     position: absolute;
-    top: 20%;
+    top: 35%;
     left: 50%;
 
     transform: translate(-50%, -50%);
@@ -29,6 +29,12 @@ div.registration_box{
     padding: 10px;
 
     border-radius: 0 10px;
+    transition: 3s;
+}
+
+div.registration_box:hover {
+    box-shadow: 0 0 50px 3px Lime;
+    transition: 5s;
 }
 
 div.help_box{
@@ -86,15 +92,18 @@ body.help_page {
 
 button {
     border-radius: 5px;
-    box-shadow: 0 0 3px 1px Yellow;
+    /*box-shadow: 0 0 0px 0 Yellow;*/
     margin: 3px;
+    transition: 0.5s;
 }
 button:hover {
-    box-shadow: 0 2px 2px 0 Yellow;
+    box-shadow: 0 0 5px 0 Yellow;
+    /*animation: button_shadows 2s;*/
 }
 
 input {
     border-radius: 5px 5px;
+    transition: 0.5s;
 }
 
 html {
@@ -103,9 +112,16 @@ html {
 }
 
 input:focus{
-    box-shadow: 1px 1px 1px 0 black;
+    box-shadow: 0 0 10px 0 deepskyblue;
+}
+
+textarea {
+    resize: none; /* Запрещаем изменять размер */
 }
 
 @keyframes show {
     from {opacity: 0;} to {opacity: 1;}
 }
+/*@keyframes button_shadows {
+    from {box-shadow: 0px 0px 1px 0 Yellow;} to {box-shadow: 0px 0px 5px 0 Yellow;}
+}*/
