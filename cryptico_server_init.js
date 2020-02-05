@@ -1,5 +1,5 @@
 //const cryptico = require("./node_modules/cryptico/lib/cryptico.js");
-const cryptico = require("./cryptico_js/cryptico_server_nodejs_lib.js");
+const cryptico = require("./cryptico_js/cryptico_server_nodejs_lib.min.js");
 const http = require("http");
 
 http.createServer(function(request, response){

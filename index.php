@@ -10,7 +10,7 @@
                     <meta charset="UTF-8">
                     <link rel="stylesheet" href="style.css">
                     <script src="particles.min.js"></script>
-                    <script src="cryptico_js/sha512.js"></script>
+                    <script src="cryptico_js/sha512.min.js"></script>
                     <script src="index_page.js"></script>
                     <title>MSG box login</title>
                 </head>
