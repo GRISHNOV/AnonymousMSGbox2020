@@ -47,7 +47,7 @@
             </html>
         <?php
     }else{
-        header('Location: main_msg_module.php');
+        header('Location: select_regime_module.php');
         exit();
     }
     #print("<br><br>");

@@ -16,7 +16,7 @@
                     $_SESSION['auth_exist'] = True;
                     $_SESSION['auth_error'] = False;
                     sleep(1);
-                    header('Location: main_msg_module.php');
+                    header('Location: select_regime_module.php');
                     exit();
                 }
             }
@@ -26,6 +26,6 @@
             exit();
         }
     }else{
-        header('Location: main_msg_module.php');
+        header('Location: select_regime_module.php');
         exit();
     }

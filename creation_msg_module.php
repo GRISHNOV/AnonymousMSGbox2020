@@ -41,6 +41,8 @@
             </form>
             <hr>
             <div align="right">
+                <button onclick="window.location.href = 'select_regime_module.php';">Выбор режима</button>
+                <br>
                 <button onclick="window.location.href = 'terminate_session.php';">Выйти</button>
             </div>
         </div>
