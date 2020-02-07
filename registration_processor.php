@@ -23,6 +23,8 @@
     $user_password = generate_str(16);
     $user_alias = random_int(100000,999999);
 
+    $user_registration_qr_code = create_registration_qr_code($user_login,$user_password,(string)$user_alias,(string)$user_time_to_destroy);
+
     $user_login_hash = hash('sha512', $user_login);
     $user_password_hash = hash('sha512', $user_password);
     $new_open_RSA_user_key = create_RSA_key_pair($user_password);
@@ -104,9 +106,14 @@
                 <p>Password: <?print($user_password);?></p>
                 <p>Alias: <?print($user_alias);?></p>
                 <p>Время жизни: <?print($user_time_to_destroy . " hours");?></p>
+                <img src="temp_qr_code_store/<?print($user_registration_qr_code);?>" alt="Registration QR-code">
                 <hr>
                 <button onclick="window.location.href = 'index.php';">Завершить</button>
             </div>
         </div>
     </body>
 </html>
+
+<?php
+    //sleep(5);
+    //unlink("temp_qr_code_store/" . $user_registration_qr_code);
