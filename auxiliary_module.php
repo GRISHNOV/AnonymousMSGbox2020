@@ -32,13 +32,11 @@
     }
 
     function create_registration_qr_code($user_login,$user_password,$user_alias,$user_time_to_destroy){
-
         $tempDir = "./temp_qr_code_store/";
         $codeContents = 'Login: '. $user_login . PHP_EOL . 'Pass: '. $user_password . PHP_EOL . 'Alias: '. $user_alias . PHP_EOL . 'Live time: ' . $user_time_to_destroy . ' hours';
         $fileName = md5($codeContents) . ".png";
         $pngAbsoluteFilePath = $tempDir.$fileName;
         $urlRelativeFilePath = "/TEMP/".$fileName;
         QRcode::png($codeContents, $pngAbsoluteFilePath,'H',2,2);
-
         return $fileName;
     }

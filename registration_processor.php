@@ -1,4 +1,5 @@
 <?php
+
     error_reporting(E_ALL);
     session_start();
 
@@ -8,6 +9,21 @@
 
     require_once "db_module.php";
     require_once "auxiliary_module.php";
+    require_once "php_lib\simple-php-captcha\simple-php-captcha.php";
+
+    //print($_SESSION['captcha']['code']);
+    //print($_GET[user_captcha]);
+
+    if ($_SESSION['captcha']['code'] != $_GET['user_captcha']){
+        $_SESSION['captcha_check_error'] = true;
+        sleep(1);
+        header('Location: registration_interface.php');
+        exit();
+    } else {
+        if (isset($_SESSION['captcha_check_error'])){
+            unset($_SESSION['captcha_check_error']);
+        }
+    }
 
     if ($_GET['Time_to_destroy'] == "2h"){
         $user_time_to_destroy = 2;
@@ -16,6 +32,8 @@
     } elseif ($_GET['Time_to_destroy'] == "48h"){
         $user_time_to_destroy = 48;
     } else {
+        sleep(1);
+        header('Location: index.php');
         exit();
     }
 
@@ -115,5 +133,6 @@
 </html>
 
 <?php
-    //sleep(5);
-    //unlink("temp_qr_code_store/" . $user_registration_qr_code);
+    flush();
+    sleep(1);
+    unlink("temp_qr_code_store/" . $user_registration_qr_code);

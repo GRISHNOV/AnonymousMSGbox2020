@@ -38,7 +38,7 @@
                         </form>
                         <hr>
                         <br>
-                        <button onclick="window.location.href = 'registration_intefrace.php';">Создать почтовый ящик</button>
+                        <button onclick="window.location.href = 'registration_interface.php';">Создать почтовый ящик</button>
                         <br>
                         <button onclick="window.location.href = 'help.php';">Справка</button>
                         <p align="right">RSA 2048<br>E2E email content encryption</p>
