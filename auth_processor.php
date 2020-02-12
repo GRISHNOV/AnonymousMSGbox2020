@@ -16,6 +16,8 @@
                 if ($_GET["user_login"] == hash("sha512", $db_row[1]) and $_GET["user_password"] == hash("sha512", $db_row[2])) {
                     $_SESSION['auth_exist'] = True;
                     $_SESSION['auth_error'] = False;
+                    $_SESSION['user_alias'] = $db_row[5];
+                    $_SESSION['user_id'] = $db_row[0];
                     sleep(1);
                     header('Location: select_regime_module.php');
                     exit();

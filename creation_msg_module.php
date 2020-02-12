@@ -32,7 +32,7 @@
             });
         </script>
         <div class="login_box">
-            <form action="" name="auth_form" method="GET">
+            <form action="commit_msg_module.php" name="auth_form" method="POST">
                 <span style="color:Aqua"><h3 align="center">Форма отправки<br>сообщения</h3></span>
                 <hr>
                 <input type="text" name="destination_alias" placeholder=" Alias" maxlength="6" id="alias_input" autocomplete="off"><br><br>

@@ -29,6 +29,8 @@
         <br>
         <button onclick="window.location.href = 'creation_msg_module.php';">Отправить сообщение</button>
         <br>
+        <button onclick="window.location.href = 'read_msg_module.php';">Просмотр входящих</button>
+        <br>
         <button onclick="window.location.href = 'terminate_session.php';">Выйти</button>
         <br>
     </body>
