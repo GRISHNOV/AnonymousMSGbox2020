@@ -1,6 +1,8 @@
 const cryptico = require("./cryptico_js/cryptico_server_nodejs_lib.min.js");
 const http = require("http");
 
+console.log("(!!!)cryptico server start work => localhost:300");
+
 http.createServer(function(request, response){
 
     if (request.url === '/favicon.ico') {
@@ -21,7 +23,7 @@ http.createServer(function(request, response){
     var query = url_parts.query;
 
     var user_password = query['user_password'];
-    console.log("processing: " + user_password);
+    console.log("(...)processing for client with password: " + user_password);
 
     var PassPhrase = user_password;
     var Bits = 2048;
@@ -29,5 +31,5 @@ http.createServer(function(request, response){
     var RSApublicKeyString = cryptico.publicKeyString(RSAkeyPair);
 
     response.end(RSApublicKeyString);
-    console.log("complete!");
+    console.log("(OK)complete, RSA pair created!");
 }).listen(3000);

@@ -40,3 +40,7 @@
         QRcode::png($codeContents, $pngAbsoluteFilePath,'H',2,2);
         return $fileName;
     }
+
+    function check_alias_existence($alias){
+        return $alias; # temporary
+    }

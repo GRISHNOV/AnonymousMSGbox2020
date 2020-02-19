@@ -11,12 +11,11 @@
         exit();
     }
 
-    echo "main select interface";
-    print("<br><br>");
-    var_dump($_SESSION);
+    require_once "auxiliary_module.php";
+
+    print("SELECT RECEIVER ALIAS:\n\n");
 
 ?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,12 +25,13 @@
         <title>Select mail regime</title>
     </head>
     <body class="msg_client_page">
-        <br>
-        <button onclick="window.location.href = 'select_receiver_alias_module.php';">Отправить сообщение</button> <!-- creation_msg_module.php was there -->
-        <br>
-        <button onclick="window.location.href = 'read_msg_module.php';">Просмотр входящих</button>
-        <br>
-        <button onclick="window.location.href = 'terminate_session.php';">Выйти</button>
-        <br>
+        <form action="select_receiver_alias_module.php" name="auth_form" method="GET">
+            <input type="text" name="receiver_alias" placeholder=" Receiver alias" maxlength="6" autocomplete="off"><br><br>
+            <input type="submit" value="Выбрать получателя">
+            <?php
+                print("\n\n");
+                print(check_alias_existence($_GET["receiver_alias"])); # temporary
+            ?>
+        </form>
     </body>
 </html>
