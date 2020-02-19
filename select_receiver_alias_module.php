@@ -25,12 +25,15 @@
         <title>Select mail regime</title>
     </head>
     <body class="msg_client_page">
-        <form action="select_receiver_alias_module.php" name="auth_form" method="GET">
+        <form action="select_open_RSA_key.php" name="receiver_alias" method="GET">
             <input type="text" name="receiver_alias" placeholder=" Receiver alias" maxlength="6" autocomplete="off"><br><br>
             <input type="submit" value="Выбрать получателя">
             <?php
-                print("\n\n");
-                print(check_alias_existence($_GET["receiver_alias"])); # temporary
+                if (isset($_SESSION["receiver_alias"])){
+                    if ($_SESSION["receiver_alias"] == "not found"){
+                        print("\n\nNOT FOUND");
+                    }
+                }
             ?>
         </form>
     </body>

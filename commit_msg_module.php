@@ -21,25 +21,19 @@
     $message = $_POST['msg'];
 
     $db_connection = connect_to_db();
-
     $db_query = "SELECT * FROM user_list";
     $db_query_result = mysqli_query($db_connection, $db_query) or die(mysqli_error($db_connection));
     $db_input = mysqli_fetch_all($db_query_result);
-
     foreach ($db_input as $db_row) {
         if ($receiver_alias == $db_row[5]){
             $receiver_id = (int)$db_row[0];
             break;
         }
     }
-
     if ($receiver_id == false){
         print("<br>ALIAS NOT FOUND<br>");
         exit();
     }
-
-    print("<br>ALIAS EXITS!<br>");
-
     $db_query = "INSERT INTO msg_box (sender_id, receiver_id, msg) VALUES ('$sender_id' , '$receiver_id' , '$message')";
     $db_query_result = mysqli_query($db_connection, $db_query) or die(mysqli_error($db_connection));
 

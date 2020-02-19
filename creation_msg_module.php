@@ -31,11 +31,14 @@
                 console.log('callback - particles.js config loaded');
             });
         </script>
+        <div name="receiver_open_RSA_key" value="<?php print($_SESSION["receiver_open_RSA_key"]); ?>" hidden></div>
         <div class="login_box">
             <form action="commit_msg_module.php" name="auth_form" method="POST">
                 <span style="color:Aqua"><h3 align="center">Форма отправки<br>сообщения</h3></span>
                 <hr>
-                <input type="text" name="destination_alias" placeholder=" Alias" maxlength="6" id="alias_input" autocomplete="off"><br><br>
+                <!--<input type="text" name="destination_alias" placeholder=" Alias" maxlength="6" id="alias_input" autocomplete="off" ><br><br>-->
+                Получатель:
+                <input type="text" name="destination_alias" id="alias_input" value="<?php print(" " . $_SESSION["receiver_alias"]); ?>" readonly><br><br>
                 <textarea name="msg" cols="40" rows="10" placeholder=" Message"></textarea><br><br>
                 <input type="submit" value="Отправить сообщение">
             </form>
