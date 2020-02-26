@@ -22,6 +22,8 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
         <script src="particles.min.js"></script>
+        <script src="sending_message_encryption.js"></script>
+        <script src="cryptico_js/cryptico.min.js"></script>
         <title>MSG box client</title>
     </head>
     <body class="msg_client_page">
@@ -31,15 +33,15 @@
                 console.log('callback - particles.js config loaded');
             });
         </script>
-        <div name="receiver_open_RSA_key" value="<?php print($_SESSION["receiver_open_RSA_key"]); ?>" hidden></div>
+        <div id="receiver_open_RSA_key" hidden><?php print($_SESSION["receiver_open_RSA_key"]);?></div>
         <div class="login_box">
-            <form action="commit_msg_module.php" name="auth_form" method="POST">
+            <form action="commit_msg_module.php" name="auth_form" method="POST" onsubmit="return encrypting_message();">
                 <span style="color:Aqua"><h3 align="center">Форма отправки<br>сообщения</h3></span>
                 <hr>
                 <!--<input type="text" name="destination_alias" placeholder=" Alias" maxlength="6" id="alias_input" autocomplete="off" ><br><br>-->
                 Получатель:
                 <input type="text" name="destination_alias" id="alias_input" value="<?php print(" " . $_SESSION["receiver_alias"]); ?>" readonly><br><br>
-                <textarea name="msg" cols="40" rows="10" placeholder=" Message"></textarea><br><br>
+                <textarea name="msg" id="user_msg_content" cols="40" rows="10" placeholder=" Message"></textarea><br><br>
                 <input type="submit" value="Отправить сообщение">
             </form>
             <hr>
